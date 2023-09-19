@@ -29,6 +29,8 @@ Function Get-Uninstall {
             #If QuietUninstallString switch is used then select QuietUninstallString. 
                     
                 [PSCustomObject]@{
+                    DisplayName = $ItemProperty.DisplayName
+                    DisplayVersion = $ItemProperty.DisplayVersion
                     InstallLocation = $ItemProperty.InstallLocation
                     GUID = $ItemProperty.PSChildName
                     UninstallString = $ItemProperty.UninstallString
@@ -39,8 +41,8 @@ Function Get-Uninstall {
 }
     
 #Get uninstall string and store in $string var. You can select Uninstall
-$String = (Get-Uninstall -Name "Google Chrome").UninstallString ; $String
+#$String = (Get-Uninstall -Name "Google Chrome").UninstallString ; $String
 
 #Uninstall using uninstall string 
-Start-Process -FilePath "cmd.exe" -ArgumentList "/C $String" -Verb RunAs 
+#Start-Process -FilePath "cmd.exe" -ArgumentList "/C $String" -Verb RunAs 
     
