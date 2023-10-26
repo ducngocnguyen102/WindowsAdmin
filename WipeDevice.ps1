@@ -1,15 +1,11 @@
 ﻿# Kill OneDrive to prevent removing data from OneDrive
 Get-Process -Name *onedrive* | Stop-Process -Force
 
-# Remove UserProfile Data
-Remove-Item -Path C:\Users\ -Recurse -Force
-
 $ExcludeList = @(
     '$Windows.~BT'
     'PerfLogs'
     'Program Files'
     'Program Files (x86)'
-    'Users'
     'Windows'
 )
 
