@@ -17,6 +17,16 @@ $CDrive_File | % {
     $_ | Remove-Item -Recurse -Force
 }
 
+# Stop all processes and trigger logoff.exe to unload the profile
+Get-Process | Stop-Process
+Start-Process Logoff.exe -Wait
+
+# Remove UserProfile
+Get-CimInstance -Class Win32_UserProfile | % { 
+    $_ | Remove-CimInstance
+}
+
+
 # Remote Wipe PC
 $namespaceName = "root\cimv2\mdm\dmmap"
 $className = "MDM_RemoteWipe"
@@ -34,3 +44,4 @@ catch [Exception]
 {
     write-host $_ | out-string
 }
+
