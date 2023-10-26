@@ -1,4 +1,4 @@
-﻿# Kill OneDrive to prevent removing data from OneDrive
+﻿# Kill OneDrive to prevent removing data from OneDrive/SharePoint Cloud
 Get-Process -Name *onedrive* | Stop-Process -Force
 
 $ExcludeList = @(
