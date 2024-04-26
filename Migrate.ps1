@@ -80,7 +80,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V DontDisplayNetworkS
 
 #Activate Windows
 $activation_result = Get-CimInstance SoftwareLicensingProduct -Filter "Name like 'Windows%'" | where { $_.PartialProductKey } | select Description, LicenseStatus
-if ($activation_result.LicenseStatus -ne '1'){slmgr.vbs //b -ipk 83JRV-DX6TQ-KYQGP-7K9H2-GF6PX /ato}
+if ($activation_result.LicenseStatus -ne '1'){slmgr.vbs //b -ipk "Product Key" /ato}
 
 
 
